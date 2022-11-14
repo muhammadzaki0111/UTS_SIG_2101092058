@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UTS </title>
+    <link rel="stylesheet" href="leaflet.css"/>
+    <script src="leaflet.js"></script>
+</head>
+<body>
+    <div id="mapku" style="width: 100%; height: 600px;"></div>
+
+</body>
+<script type="text/javascript">
+     var mymap = L.map('mapku').setView([-0.967328, 100.394308],17);
+    
+     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom:18,
+        id:'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    L.marker([-0.967327, 100.394309]).addTo(mymap);
+    
+
+    var KoordinatArea = [
+        
+           
+            [-0.967328, 100.394308],
+            [-0.966978, 100.394271],
+            [-0.966652, 100.394229],
+            [-0.966680, 100.394417],
+            [-0.966687, 100.394708],
+            [-0.966883, 100.395124],
+            [-0.967311, 100.394693],
+            [-0.967398, 100.394431],
+            [-0.967328, 100.394308],
+    ];
+
+   var arearumah = L.polygon(KoordinatArea,{color: 'red'}).addTo(mymap);
+
+   
+
+   var jalanrumah = [
+
+   
+            [-0.966713, 100.394548],
+            [-0.966667, 100.394369],
+            [-0.966651, 100.394232],
+            [-0.966844, 100.394245],
+            [-0.967147, 100.394285],
+            [-0.967292, 100.394290],
+   ];
+
+   L.polyline(jalanrumah).addTo(mymap);
+
+   L.marker([-0.966713, 100.394548])
+   .bindTooltip("<b>Jalan Menuju Rumah</b>")
+   .addTo(mymap);
+
+</script>
+</html>
